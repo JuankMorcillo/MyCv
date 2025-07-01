@@ -1,6 +1,10 @@
-import React from 'react'
+'use client';
+import React, { useState } from 'react'
 
 export default function SideBar() {
+
+  const [basePath, setBasePath] = useState(process.env.NODE_ENV == 'development' ? '' : 'MyCv')
+
   return (
     <div className='flex flex-col p-4 max-w-90 bg-gray-100 relative lg:rounded-xl xs:rounded-r-xl xs:rounded-l-xl  '>
 
@@ -13,7 +17,7 @@ export default function SideBar() {
 
         <div className='flex flex-col justify-center items-center'>
           <div className='rounded-full overflow-hidden w-55 h-55'>
-            <img src='/image/image.jpg' className='w-full h-full object-cover' />
+            <img src={`${basePath}/image/image.jpg`} className='w-full h-full object-cover' />
           </div>
         </div>
 
