@@ -17,7 +17,7 @@ export default function SideBar() {
 
         <div className='flex flex-col justify-center items-center'>
           <div className='rounded-full overflow-hidden w-55 h-55'>
-            <img src={`${basePath}/image/image.jpg`} className='w-full h-full object-cover' />
+            <img src={`/${basePath}/image/image.jpg`} className='w-full h-full object-cover' />
           </div>
         </div>
 
