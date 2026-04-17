@@ -19,7 +19,7 @@ jobs:
         run: npm install style-dictionary
 
       - name: Build tokens
-        run: npx style-dictionary build # Ejecuta tu configuración de Style Dictionary
+        run: npx style-dictionary build --config ./sd-config/config.json # Ejecuta tu configuración de Style Dictionary
 
       - name: Commit and Push changes
         uses: stefanzweifel/git-auto-commit-action@v4
