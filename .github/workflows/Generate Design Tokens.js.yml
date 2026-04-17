@@ -1,0 +1,28 @@
+on:
+  push:
+    paths:
+      - 'tokens/tokens.json' # Se dispara solo cuando este archivo cambia
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install style-dictionary
+
+      - name: Build tokens
+        run: npx style-dictionary build # Ejecuta tu configuración de Style Dictionary
+
+      - name: Commit and Push changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "style: update design tokens from figma"
+          file_pattern: 'src/styles/tokens/*' # La carpeta donde Style Dictionary escupe los archivos
